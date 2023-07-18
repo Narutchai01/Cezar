@@ -1,13 +1,19 @@
 import { useState } from 'react'
 import {formInput } from './interface'
 import Showword from './Showword'
+
+interface result {
+    words: string,
+    cesa: number
+}
+
 const From = () => {
 
     const [text, setText] = useState<formInput>({
         words: "",
         cesa: 0
     })
-    const [result, setResult] = useState<formInput>()
+    const [result, setResult] = useState<result[]>([])
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target;
@@ -27,7 +33,7 @@ const From = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setResult(text);
+        setResult([text]);
         
     }
 
