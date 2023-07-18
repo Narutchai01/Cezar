@@ -1,11 +1,7 @@
-import { useState } from 'react'
+import { SetStateAction, useState } from 'react'
 import {formInput } from './interface'
 import Showword from './Showword'
 
-interface result {
-    words: string,
-    cesa: number
-}
 
 const From = () => {
 
@@ -13,7 +9,10 @@ const From = () => {
         words: "",
         cesa: 0
     })
-    const [result, setResult] = useState<result[]>([])
+    const [result, setResult] = useState<formInput>({
+        words: "",
+        cesa: 0
+    })
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target;
@@ -33,11 +32,11 @@ const From = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setResult([text]);
+        setResult(text);
         
     }
 
-    // console.log(result);
+    console.log(result);
 
 
 
