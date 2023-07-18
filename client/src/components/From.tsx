@@ -1,4 +1,4 @@
-import { SetStateAction, useState } from 'react'
+import { useState } from 'react'
 import {formInput } from './interface'
 import Showword from './Showword'
 
