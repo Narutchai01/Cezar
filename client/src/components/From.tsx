@@ -7,7 +7,7 @@ const From = () => {
         words: "",
         cesa: 0
     })
-    const [result, setResult] = useState<formInput>([])
+    const [result, setResult] = useState<formInput>()
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target;
