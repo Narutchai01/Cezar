@@ -8,7 +8,7 @@ const Showword = ({ some, num }: dataProps) => {
         const so = newsome[i].charCodeAt(0) - num;
         // console.log(so);
         newsome[i] = String.fromCharCode(so);
-        console.log(newsome);
+        // console.log(newsome);
         
         
     }

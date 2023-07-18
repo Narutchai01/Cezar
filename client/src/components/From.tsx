@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState,FormEvent,ChangeEvent } from 'react'
 import {formInput } from './interface'
 import Showword from './Showword'
 
@@ -14,7 +14,7 @@ const From = () => {
         cesa: 0
     })
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target;
         if (name === "cesa") {
             setText({
@@ -30,13 +30,13 @@ const From = () => {
         }
     }
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setResult(text);
         
     }
 
-    console.log(result);
+    // console.log(result);
 
 
 
