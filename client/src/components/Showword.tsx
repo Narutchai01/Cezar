@@ -44,7 +44,7 @@ const Showword = ({ some, num }: dataProps) => {
 
     return (
         <>
-            <p>{decodedMessage}</p>
+            <p className="mt-10 text-5xl font-bold text-white">{decodedMessage}</p>
         </>
     )
 }
