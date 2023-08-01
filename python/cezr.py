@@ -1,18 +1,27 @@
-def encoding(msg):
+def encoding(msg,num):
 
-    num = 20
 
     newlist = []
 
     for i in range(len(msg)):
         newmsg = ord(msg[i])
-        cezr = newmsg - num
-        if cezr < 65:
-            z = 65 - cezr
-            cznum = 90 - z
-            newlist.append(chr(cznum))       
-        else:
-            newlist.append(chr(cezr))
+        
+        if num > 0:
+            cezr = newmsg - num
+            if cezr < 65:
+                z = 65 - cezr
+                cznum = 91 - z
+                newlist.append(chr(cznum))       
+            else:
+                newlist.append(chr(cezr))
+        elif num < 0 :
+            cezr = newmsg + num
+            if cezr < 65:
+                z = 65 - cezr
+                cznum = 91 - z
+                newlist.append(chr(cznum))
+            else:
+                newlist.append(chr(cezr))
 
     decoded_msg = "".join(newlist)
     print(decoded_msg)
@@ -21,8 +30,7 @@ def encoding(msg):
     print(newlist)
 
 
-def decoding(msg):
-    num = 20 
+def decoding(msg,num):
     newlist = []
 
     for i in range(len(msg)):
@@ -39,26 +47,45 @@ def decoding(msg):
     print(newlist)
 
 
-encoding('WELCOME')
+
 def decoding_last(msg, num):
     newlist = []
-    for i in range(len(msg)):
-        newmsg = ord(msg[i])
-        cezr = newmsg + num
-        if cezr > 90:
-            z = cezr - 90
-            cznum = 65 + z
-            newlist.append(chr(cznum))
-        else:
-            newlist.append(chr(cezr))
-
+    if num > 0:
+        for i in range(len(msg)):
+            newmsg = ord(msg[i])
+            cezr = newmsg + num
+            if cezr > 90:
+                z = cezr - 90
+                cznum = 64 + z
+                newlist.append(chr(cznum))
+            else:
+                newlist.append(chr(cezr))
+    elif num < 0:
+        for i in range(len(msg)):
+            newmsg = ord(msg[i])
+            cezr = newmsg - num
+            if cezr > 90:
+                z = cezr - 90
+                cznum = 64 + z
+                newlist.append(chr(cznum))
+            else:
+                newlist.append(chr(cezr))
     decoded_msg = "".join(newlist)
     return decoded_msg
 
-# Example usage:
-message = "CJQHTRJ"
-shift_amount = 20
-decoded_message = decoding_last(message, shift_amount)
-print(decoded_message)
 
-encoding('WELCOMETOACSFIRSTMEET')
+
+
+encoding('WELC',-5)
+encoding('OMET',19)
+encoding('OACS',13)
+encoding('FIRS',10)
+encoding('TMEET',-7)
+
+print(decoding_last('RZGX',-5))
+print(decoding_last('VTLA',19))
+print(decoding_last('BNPF',13))
+print(decoding_last('VYHI',10))
+print(decoding_last('MFXXM',-7))
+
+
